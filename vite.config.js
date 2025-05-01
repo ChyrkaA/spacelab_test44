@@ -17,37 +17,15 @@ pages.forEach(page => {
 });
 
 export default defineConfig({
-    base: "/spacelab_test4/",
+    base: "/spacelab_test44",
     build: {
-        target: "es2022",
-        outDir: "build",
-        assetsDir: "assets",
+        target: 'es2022',
+        outDir: 'build',
         cssCodeSplit: true,
-        minify: "terser",
-        terserOptions: {
-            compress: {
-                drop_console: true,
-                drop_debugger: true,
-            },
-            mangle: {
-                properties: {
-                    regex: /^_/,
-                },
-            },
-        },
         rollupOptions: {
             input: {
                 ...pagesInput,
             },
-            plugins: [
-                terser({
-                    compress: {
-                        drop_console: true,
-                        drop_debugger: true,
-                    },
-                    mangle: true,
-                }),
-            ],
         },
     },
     server: {
